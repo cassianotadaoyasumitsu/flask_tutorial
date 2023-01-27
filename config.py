@@ -15,3 +15,5 @@ class Config(object):
     ADMINS = ['ctyasumitsu@gmail.com']
     # Pagination
     POSTS_PER_PAGE = 25
+    # Language
+    LANGUAGES = ['en', 'pt-BR']
