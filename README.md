@@ -1,10 +1,11 @@
 # venv Env activate
 
 source venv/bin/activate
+deactivate
+
+## Update requirements.txt
 
 pip freeze > requirements.txt
-
-deactivate
 
 # Flask shell usage
 
@@ -43,3 +44,8 @@ flask shell
     users = User.query.all()
     for user in users:
         print(user.id, user.username)
+
+# Docker
+
+docker build -t docker-flask .
+docker run -p 5000:5000 -d docker-flask
