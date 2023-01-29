@@ -18,7 +18,7 @@ RUN . venv/bin/activate
 RUN pip install -r requirements.txt
 
 # Expose the port that the app will run on
-EXPOSE 5000
+EXPOSE 3000
 
 # Specify the command to run when a container is created from the image
-CMD ["flask", "run", "--host=0.0.0.0", "--port=5000"]
+CMD ["flask", "run", "--host=0.0.0.0", "--port=3000"]
