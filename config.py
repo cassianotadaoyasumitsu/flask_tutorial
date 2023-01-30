@@ -16,4 +16,6 @@ class Config(object):
     # Pagination
     POSTS_PER_PAGE = 25
     # Language
-    LANGUAGES = ['en', 'pt-BR']
+    LANGUAGES = ['en', 'pt-BR', 'ja']
+    # Translation
+    MS_TRANSLATOR_KEY = os.environ.get('MS_TRANSLATOR_KEY')
