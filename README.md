@@ -78,3 +78,26 @@ docker run --name microblog -d -p 8000:5000 --rm -e SECRET_KEY=my-secret-key \
  --link elasticsearch:elasticsearch \
  -e ELASTICSEARCH_URL=http://elasticsearch:9200 \
  microblog:latest
+
+# About translations
+
+pybabel extract -F babel.cfg -k \_l -o messages.pot .
+
+pybabel init -i messages.pot -d app/translations -l es
+creating catalog app/translations/es/LC_MESSAGES/messages.po based on messages.pot
+
+pybabel compile -d app/translations
+compiling catalog app/translations/es/LC_MESSAGES/messages.po to
+app/translations/es/LC_MESSAGES/messages.mo
+
+## Update translations
+
+pybabel extract -F babel.cfg -k \_l -o messages.pot .
+
+pybabel update -i messages.pot -d app/translations
+
+## Command-Line
+
+flask translate init LANG to add a new language
+flask translate update to update all language repositories
+flask translate compile to compile all language repositories
