@@ -40,9 +40,17 @@
         <li><a href="{{ url_for('auth.login') }}">{{ _('Login') }}</a></li>
         {% else %}
         <li>
+          <a href="{{ url_for('main.messages') }}">
+            {{ _('Messages') }} {% set new_messages =
+            current_user.new_messages() %} {% if new_messages %}
+            <span id="message_count" class="badge">{{ new_messages }}</span>
+            {% endif %}
+          </a>
+        </li>
+        <li>
           <a href="{{ url_for('main.user', username=current_user.username) }}"
-            >{{ _('Profile') }}</a
-          >
+            >{{ _('Profile') }}
+          </a>
         </li>
         <li><a href="{{ url_for('auth.logout') }}">{{ _('Logout') }}</a></li>
         {% endif %}
