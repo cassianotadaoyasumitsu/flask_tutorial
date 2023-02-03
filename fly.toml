@@ -1,6 +1,6 @@
-# fly.toml file generated for flask-tutorial on 2023-01-28T16:40:09+09:00
+# fly.toml file generated for twilight-pine-6346 on 2023-02-03T13:30:01+09:00
 
-app = "flask-tutorial"
+app = "twilight-pine-6346"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
