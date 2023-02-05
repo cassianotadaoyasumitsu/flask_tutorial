@@ -6,6 +6,7 @@ deactivate
 ## Update requirements.txt
 
 pip freeze > requirements.txt
+pip install -r requirements.txt
 
 # Flask shell usage
 
