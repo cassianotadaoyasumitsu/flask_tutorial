@@ -24,6 +24,7 @@ block navbar %}
       <ul class="nav navbar-nav">
         <li><a href="{{ url_for('main.index') }}">{{ _('Home') }}</a></li>
         <li><a href="{{ url_for('main.explore') }}">{{ _('Explore') }}</a></li>
+        <li><link rel="search" type="application/opensearchdescription+xml" href="{{ url_for('static', filename='search.xml') }}" title="My Search Engine"></li>
       </ul>
       {% if g.search_form %}
       <form

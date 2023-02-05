@@ -65,3 +65,5 @@ jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endfor'. Jinja w
 2023-01-25 13:07:13,364 INFO: Microblog startup [in /Users/cassiano/code/Python/flask_tutorial/app/__init__.py:43]
 2023-01-25 13:18:55,171 INFO: Microblog startup [in /Users/cassiano/code/Python/flask_tutorial/app/__init__.py:43]
 2023-01-26 09:00:11,200 INFO: Microblog startup [in /Users/cassiano/code/Python/flask_tutorial/app/__init__.py:43]
+2023-02-05 09:35:57,563 INFO: Microblog startup [in /Users/cty/code/flask_tutorial/app/__init__.py:79]
+2023-02-05 09:37:05,179 INFO: Microblog startup [in /Users/cty/code/flask_tutorial/app/__init__.py:79]
