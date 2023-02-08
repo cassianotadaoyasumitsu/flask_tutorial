@@ -1,16 +1,16 @@
 # venv Env activate
 
-source venv/bin/activate
-deactivate
+    source venv/bin/activate
+    deactivate
 
 ## Update requirements.txt
 
-pip freeze > requirements.txt
-pip install -r requirements.txt
+    pip freeze > requirements.txt
+    pip install -r requirements.txt
 
 # Flask shell usage
 
-flask shell
+    flask shell
 
 # To use
 
@@ -48,31 +48,31 @@ flask shell
 
 # Docker
 
-docker build -t docker-flask:latest .
-docker run --name microblog -d -p 8000:5000 --rm microblog:latest
+    docker build -t docker-flask:latest .
+    docker run --name microblog -d -p 8000:5000 --rm microblog:latest
 
 # About translations
 
-pybabel extract -F babel.cfg -k \_l -o messages.pot .
+    pybabel extract -F babel.cfg -k \_l -o messages.pot .
 
-pybabel init -i messages.pot -d app/translations -l es
-creating catalog app/translations/es/LC_MESSAGES/messages.po based on messages.pot
+    pybabel init -i messages.pot -d app/translations -l es
+    creating catalog app/translations/es/LC_MESSAGES/messages.po based on messages.pot
 
-pybabel compile -d app/translations
-compiling catalog app/translations/es/LC_MESSAGES/messages.po to
-app/translations/es/LC_MESSAGES/messages.mo
+    pybabel compile -d app/translations
+    compiling catalog app/translations/es/LC_MESSAGES/messages.po to
+    app/translations/es/LC_MESSAGES/messages.mo
 
 ## Update translations
 
-pybabel extract -F babel.cfg -k \_l -o messages.pot .
+    pybabel extract -F babel.cfg -k \_l -o messages.pot .
 
-pybabel update -i messages.pot -d app/translations
+    pybabel update -i messages.pot -d app/translations
 
 ## Command-Line
 
-flask translate init LANG to add a new language
-flask translate update to update all language repositories
-flask translate compile to compile all language repositories
+    flask translate init LANG to add a new language
+    flask translate update to update all language repositories
+    flask translate compile to compile all language repositories
 
 # API
 
@@ -91,14 +91,14 @@ flask translate compile to compile all language repositories
 
 - Return a token
 
-$ http --auth <username>:<password> POST http://localhost:5000/api/tokens
+      $ http --auth <username>:<password> POST http://localhost:5000/api/tokens
 
 - Return a user
 
-$ http GET http://localhost:5000/api/users/1 "Authorization:Bearer pC1Nu9wwyNt8VCj1trWilFdFI276AcbS"
+      $ http GET http://localhost:5000/api/users/1 "Authorization:Bearer pC1Nu9wwyNt8VCj1trWilFdFI276AcbS"
 
 - Revoking a token
 
-$ http DELETE http://localhost:5000/api/tokens Authorization:"Bearer pC1Nu9wwyNt8VCj1trWilFdFI276AcbS"
+      $ http DELETE http://localhost:5000/api/tokens Authorization:"Bearer pC1Nu9wwyNt8VCj1trWilFdFI276AcbS"
 
 
