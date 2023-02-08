@@ -92,8 +92,13 @@ flask translate compile to compile all language repositories
 - Return a token
 
 $ http --auth <username>:<password> POST http://localhost:5000/api/tokens
+
 - Return a user
 
 $ http GET http://localhost:5000/api/users/1 "Authorization:Bearer pC1Nu9wwyNt8VCj1trWilFdFI276AcbS"
+
+- Revoking a token
+
+$ http DELETE http://localhost:5000/api/tokens Authorization:"Bearer pC1Nu9wwyNt8VCj1trWilFdFI276AcbS"
 
 
