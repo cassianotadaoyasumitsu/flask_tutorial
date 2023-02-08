@@ -51,35 +51,6 @@ flask shell
 docker build -t docker-flask:latest .
 docker run --name microblog -d -p 8000:5000 --rm microblog:latest
 
-## Mysql Container
-
-docker run --name mysql -d -e MYSQL_RANDOM_ROOT_PASSWORD=yes \
- -e MYSQL_DATABASE=microblog -e MYSQL_USER=microblog \
- -e MYSQL_PASSWORD=<database-password> \
- mysql/mysql-server:latest
-
-docker run --name microblog -d -p 8000:5000 --rm -e SECRET_KEY=my-secret-key \
- -e MAIL_SERVER=smtp.googlemail.com -e MAIL_PORT=587 -e MAIL_USE_TLS=true \
- -e MAIL_USERNAME=<your-gmail-username> -e MAIL_PASSWORD=<your-gmail-password> \
- --link mysql:dbserver \
- -e DATABASE_URL=mysql+pymysql://microblog:<database-password>@dbserver/microblog \
- microblog:latest
-
-## Elastic search Container
-
-docker run --name elasticsearch -d -p 9200:9200 -p 9300:9300 --rm \
- -e "discovery.type=single-node" \
- docker.elastic.co/elasticsearch/elasticsearch:8.6.1
-
-docker run --name microblog -d -p 8000:5000 --rm -e SECRET_KEY=my-secret-key \
- -e MAIL_SERVER=smtp.googlemail.com -e MAIL_PORT=587 -e MAIL_USE_TLS=true \
- -e MAIL_USERNAME=ctyasumitsu@gmail.com -e MAIL_PASSWORD=Cassian0 \
- --link mysql:dbserver \
- -e DATABASE_URL=mysql+pymysql://microblog:admin123@dbserver/microblog \
- --link elasticsearch:elasticsearch \
- -e ELASTICSEARCH_URL=http://elasticsearch:9200 \
- microblog:latest
-
 # About translations
 
 pybabel extract -F babel.cfg -k \_l -o messages.pot .
@@ -102,3 +73,27 @@ pybabel update -i messages.pot -d app/translations
 flask translate init LANG to add a new language
 flask translate update to update all language repositories
 flask translate compile to compile all language repositories
+
+# API
+
+## Endpoints
+
+| HTTP Method | Resource URL | Notes |
+| --- | --- | --- |
+| GET | /api/users/&lt;id&gt; | Return a user. |
+| GET | /api/users | Return the collection of all users. |
+| GET | /api/users/&lt;id&gt;/followers | Return the followers of this user. |
+| GET | /api/users/&lt;id&gt;/followed | Return the users this user is following. |
+| POST | /api/users | Register a new user account. |
+| PUT | /api/users/&lt;id&gt; | Modify a user. |
+
+### Token
+
+- Return a token
+
+$ http --auth <username>:<password> POST http://localhost:5000/api/tokens
+- Return a user
+
+$ http GET http://localhost:5000/api/users/1 "Authorization:Bearer pC1Nu9wwyNt8VCj1trWilFdFI276AcbS"
+
+
